@@ -1,0 +1,5 @@
+{
+  "name": "Copy of QuantumGuard Auth",
+  "description": "A responsive website demonstrating Quantum Key Distribution (QKD) for secure authentication, featuring an interactive simulation powered by the Gemini API.",
+  "requestFramePermissions": []
+}

@@ -1,0 +1,218 @@
+:root {
+  --background-color: #0a0a1a;
+  --primary-text-color: #e0e0e0;
+  --accent-color: #00f7ff;
+  --secondary-accent-color: #9c27b0;
+  --card-background-color: #1a1a3a;
+  --border-color: #3a3a5a;
+  --success-color: #4caf50;
+  --error-color: #f44336;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background-color: var(--background-color);
+  color: var(--primary-text-color);
+  font-family: 'Roboto Mono', monospace;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  max-width: 900px;
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* Header */
+header {
+  width: 100%;
+  text-align: center;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: var(--accent-color);
+  text-shadow: 0 0 10px var(--accent-color);
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+/* Section Styling */
+section {
+  background-color: var(--card-background-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 0 20px rgba(0, 247, 255, 0.1);
+}
+
+section h2 {
+  font-size: 1.8rem;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  border: none;
+  background: none;
+  box-shadow: none;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: #b0b0c0;
+}
+
+/* QKD Demo Section */
+.qkd-demo button {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--background-color);
+  background: linear-gradient(90deg, var(--accent-color), var(--secondary-accent-color));
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 1.5rem;
+}
+
+.qkd-demo button:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 247, 255, 0.2);
+}
+
+.qkd-demo button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.simulation-log {
+  background-color: #050510;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  padding: 1.5rem;
+  min-height: 100px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #c0c0d0;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.simulation-log p.placeholder {
+    color: #6c6c8c;
+}
+
+.simulation-log p.error {
+    color: var(--error-color);
+}
+
+.loading-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    animation: pulse 1.5s infinite;
+}
+
+/* "How it Works" and "Benefits" Sections */
+.steps, .benefits-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.step, .benefit-card {
+  background-color: rgba(10, 10, 26, 0.5);
+  padding: 1.5rem;
+  border-radius: 5px;
+  border-left: 3px solid var(--secondary-accent-color);
+}
+
+.step h3, .benefit-card h3 {
+  color: var(--primary-text-color);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 2rem;
+  border-top: 1px solid var(--border-color);
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/* Animations */
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px var(--accent-color), 0 0 20px var(--accent-color);
+  }
+  to {
+    text-shadow: 0 0 20px var(--accent-color), 0 0 30px #4d90fe;
+  }
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem 1rem;
+    gap: 2rem;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  section h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 600px) {
+    .steps {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .benefits-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
